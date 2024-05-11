@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${currentGame.gameName}" />
+    <script src="https://kit.fontawesome.com/63cd46c35b.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/game.css">
+    <script src="/js/burger.js"></script>
+    <script src="/js/addToList.js"></script>
+</head>
+<body>
+    <div th:insert="~{parts/header :: header}"></div>
+    <main>
+        <div class="game-wrapper">
+            <img th:src="@{${'/images/posters/' + currentGame.img}}" alt="" />
+            <div class="game-info">
+                <p th:text="${currentGame.gameName}" id="title" />
+                <p>Дата выхода: <span th:text="${currentGame.releaseDate}" /></p>
+                <p>Разработчик: <span th:text="${currentGame.developer}" /></p>
+                <p>Жанры: <span th:text="${currentGame.genre}" /></p>
+            </div>
+            <div class="rating">
+                <p>Рейтинг: <span th:text="${currentGame.rating}" /></p>
+                <div class="addto">
+                    <div onclick="addToToggle()" id="addtoButton" class="addto-dropbutton">
+                        <span id="list-type">Добавить в </span>
+                    </div>
+                    <form method="get" th:action="@{${'/game/' + currentGame.id}}" id="addtoContent" class="addto-dropcontent">
+                        <button type="submit" name="type" value="planned">Запланировано</button>
+                        <button type="submit" name="type" value="completed">Пройдено</button>
+                        <button type="submit" name="type" value="playing">Играю</button>
+                        <button type="submit" name="type" value="postponed">Отложено</button>
+                        <button type="submit" name="type" value="delete">Удалить из списка</button>
+                    </form>
+                </div>
+                <span>Оценка:</span>
+                <div class="rating-drop">
+                    <div onclick="ratingToggle()" id="ratingButton" class="rating-dropbutton">
+                        <span>0 </span>
+                    </div>
+                    <form method="get" th:action="@{${'/game/' + currentGame.id}}" id="ratingContent" class="rating-dropcontent">
+                        <button type="submit" name="rating" value="1">1</button>
+                        <button type="submit" name="rating" value="2">2</button>
+                        <button type="submit" name="rating" value="3">3</button>
+                        <button type="submit" name="rating" value="4">4</button>
+                        <button type="submit" name="rating" value="5">5</button>
+                        <button type="submit" name="rating" value="6">6</button>
+                        <button type="submit" name="rating" value="7">7</button>
+                        <button type="submit" name="rating" value="8">8</button>
+                        <button type="submit" name="rating" value="9">9</button>
+                        <button type="submit" name="rating" value="10">10</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <p th:text="${currentGame.description}" class="description" />
+    </main>
+    <div th:insert="~{parts/footer :: footer}"></div>
+</body>
+</html>

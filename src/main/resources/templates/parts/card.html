@@ -1,0 +1,6 @@
+<div th:fragment="card">
+    <div class="card">
+        <a th:text="${game.gameName}" th:href="@{/game/{id}(id=${game.id})}" class="card-name" />
+        <img th:src="@{${'/images/posters/' + game.img}}" />
+    </div>
+</div>

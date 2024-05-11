@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${#authentication.name}" />
+    <script src="https://kit.fontawesome.com/63cd46c35b.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/user.css">
+    <script src="/js/burger.js"></script>
+</head>
+<body>
+    <div th:insert="~{parts/header :: header}"></div>
+    <main>
+        <p th:text="${#authentication.name}" class="username" />
+        <div class="user">
+            <img src="/images/witcher-3-logo.png" alt="Avatar">
+
+
+
+            <div class="user-info">
+                <p>Запланировано: <span th:text="${plannedCount}" /></p>
+                <p>Играю: <span th:text="${playingCount}" /></p>
+                <p>Пройдено: <span th:text="${completedCount}" /></p>
+                <p>Отложено: <span th:text="${postponedCount}" /></p>
+            </div>
+        </div>
+        <div class="list-wrapper">
+            <div class="list">
+                <p>Запланировано </p>
+                <table>
+                    <tbody>
+                        <tr class="table-head">
+                            <td>Название игры</td>
+                            <td>Оценка</td>
+                        </tr>
+                        <tr th:each="list : ${planned}">
+                            <td class="table-game-name" th:text="${list.game.gameName}" />
+                            <td class="table-rating" th:text="${list.rate}" />
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="list">
+                <p>Играю </p>
+                <table>
+                    <tbody>
+                        <tr class="table-head">
+                            <td>Название игры</td>
+                            <td>Оценка</td>
+                        </tr>
+                        <tr th:each="list : ${playing}">
+                            <td class="table-game-name" th:text="${list.game.gameName}" />
+                            <td class="table-rating" th:text="${list.rate}" />
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="list">
+                <p>Пройдено </p>
+                <table>
+                    <tbody>
+                        <tr class="table-head">
+                            <td>Название игры</td>
+                            <td>Оценка</td>
+                        </tr>
+                        <tr th:each="list : ${completed}">
+                            <td class="table-game-name" th:text="${list.game.gameName}" />
+                            <td class="table-rating" th:text="${list.rate}" />
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="list">
+                <p>Отложено </p>
+                <table>
+                    <tbody>
+                        <tr class="table-head">
+                            <td>Название игры</td>
+                            <td>Оценка</td>
+                        </tr>
+                        <tr th:each="list : ${postponed}">
+                            <td class="table-game-name" th:text="${list.game.gameName}" />
+                            <td class="table-rating" th:text="${list.rate}" />
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <div th:insert="~{parts/footer :: footer}"></div>
+</body>
+</html>

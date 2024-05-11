@@ -1,0 +1,81 @@
+main {
+    padding: 0;
+}
+
+main form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    margin: 0 auto;
+    border: 2px solid var(--accent-color);
+    border-radius: 10px;
+    padding: 1em;
+    position: relative;
+}
+
+form label {
+    font-size: 1.5em;
+    line-height: 1.5em;
+    white-space: nowrap;
+}
+
+form input {
+    /* width: 65%; */
+    width: 80%;
+    color: #9A1010;
+    font-size: 1.2em;
+    line-height: 1.5em;  
+}
+
+form button[type='submit'] {
+    font-size: 1em;
+    padding: .5em 1em;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border: 1px solid transparent;
+    cursor: pointer;
+    margin-bottom: 1em;
+    transition: .3s;
+}
+
+form button[type='submit']:hover {
+    background-color: #FAEEEE;
+    color: #9A1010;
+    border: 1px solid #9A1010;
+}
+
+form a{
+    font-size: 16px;
+    text-decoration: none;
+    color: #9A1010;
+    text-align: center;
+    margin: 0 auto;
+}
+
+form a:hover {
+    text-decoration: underline;
+}
+
+.loginMessage{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:300px;
+    border-radius:10px;
+    padding:20px;
+}
+
+.red{
+    background-color: #f600003e;
+}
+
+.green{
+    background-color: #00f61d38;
+}
+
+@media (max-width: 700px) {
+    main form {
+        width: 80%;
+    }
+}

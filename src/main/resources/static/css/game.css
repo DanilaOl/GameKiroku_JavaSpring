@@ -1,0 +1,272 @@
+.game-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr 0.8fr;
+    gap: 1em 3em;
+    margin-bottom: 2em;
+}
+
+.game-wrapper img {
+    width: 100%;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.game-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-info p {
+    line-height: 1.5em;
+}
+
+#title {
+    font-size: 2em;
+}
+
+.addto {
+    width: 100%;
+    margin-bottom: 1em;
+    position: relative;
+}
+
+.addto-dropbutton {
+    background-color: #9A1010;
+    color: #FAEEEE;
+    padding: .3em .5em;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.addto-dropbutton::after {
+    content: "";
+    border: .5em solid transparent;
+    display: inline-flex;
+    border-left: .5em solid #FAEEEE;
+    border-right: none;
+    position: absolute;
+    right: .5em;
+    top: 35%;
+    transform: rotate(90deg);
+    transition-duration: 0.1s;
+}
+
+#list-type {
+    font-size: 1.5em;
+    padding-right: 1em;
+}
+
+.addto-dropcontent {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    border: 2px solid #9A1010;
+    z-index: 2;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path .4s ease-out;
+}
+
+.addto-dropcontent button {
+    width: 100%;
+    border: 0;
+    text-align: left;
+    display: block;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: .3em .4em;
+    background-color: #FAEEEE;
+}
+
+.addto-dropcontent button:hover {
+    background-color: #9A1010;
+    color: #FAEEEE;
+}
+
+.rating p, .rating span {
+    font-size: 1.5em;
+}
+
+.rating-drop {
+    display: inline-block;
+    position: relative;
+    width: 3em;
+    box-sizing: border-box;
+}
+
+.rating-drop span {
+    font-size: 1.5em;
+}
+
+.rating-dropbutton {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    width: 2em;
+    padding: .1em .5em .1em .5em;
+    background-color: #9A1010;
+    color: #FAEEEE;
+}
+
+.rating-dropbutton::after {
+    content: "";
+    border: .5em solid transparent;
+    display: inline-flex;
+    border-left: .5em solid #FAEEEE;
+    border-right: none;
+    vertical-align: 50%;
+    transform: rotate(90deg);
+    transition-duration: 0.1s;
+}
+
+.rating-dropcontent {
+    position: absolute;
+    width: 3em;
+    box-sizing: border-box;
+    border: 2px solid #9A1010;
+    border-top: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path .4s ease-out;
+}
+
+.rating-dropcontent button {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    padding: .1em 0;
+    background-color: #FAEEEE;
+    border: 0;
+    width: 100%;
+    line-height: 1em;
+    font-size: 1.2em;
+}
+
+.rating-dropcontent button:hover {
+    background-color: #9A1010;
+    color: #FAEEEE;
+}
+
+.trailer {
+    width: 85%;
+    aspect-ratio: 16/9;
+    margin-top: 1em;
+    /* width: 5%; */
+}
+
+.description {
+    font-size: 1.2em;
+}
+
+.comment-title {
+    font-size: 1.5em;
+    margin: .3em 0;
+}
+
+.comment {
+    margin-bottom: .5em;
+    border-bottom: 1px dashed #9A1010;
+    padding-bottom: .2em;
+}
+
+.comment:last-child {
+    border-bottom: none;
+}
+
+.comment-name {
+    text-decoration: none;
+    color: #FAEEEE;
+    background-color: #9A1010;
+    padding: 0 .3em;
+    font-size: 1.2em;
+}
+
+.comment-name:hover {
+    text-decoration: underline;
+}
+
+.comment-text {
+    margin-top: .2em;
+}
+
+textarea {
+    width: 100%;
+    height: 5em;
+    display: block;
+    font-size: 1em;
+    padding: .2em .5em;
+    resize: none;
+    border: 1px solid #9A1010;
+}
+
+.send-comment {
+    padding: .5em 1em;
+    background-color: #9A1010;
+    color: #FAEEEE;
+    border: 1px solid transparent;
+    cursor: pointer;
+    margin: .5em auto 0;
+    display: block;
+    font-size: 1em;
+}
+
+.show {
+    display: flex;
+}
+
+.show::after {
+    transform: rotate(0);
+}
+
+.show-content {
+    display: block;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+
+@media (max-width: 950px) {
+    .game-wrapper {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .game-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .game-info {
+        align-items: center;
+    }
+
+    .game-wrapper img {
+        width: 80%;
+    }
+
+    .addto-dropbutton {
+        line-height: 3em;
+    }
+
+    .addto-dropcontent button {
+        line-height: 2em;
+        font-size: 1.5em;
+    } 
+
+    .rating-drop {
+        width: 4em;
+    }
+
+    .rating-dropbutton {
+        line-height: 2.5em;
+        width: 3em;
+    }
+
+    .rating-dropcontent {
+        width: 4em;
+    }
+
+    .rating-dropcontent button {
+        line-height: 2em;
+    }
+}

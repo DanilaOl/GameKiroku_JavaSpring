@@ -1,0 +1,92 @@
+.username {
+    font-size: 2em;
+    color: var(--accent-color);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.user {
+    display: flex;
+    gap: 2em;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+}
+
+.user img {
+    width: 15em;
+    height: 15em;
+}
+
+.user-info p {
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+
+.list-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em 1em;
+}
+
+.list p {
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+
+.list table {
+    width: 100%;
+    border: 1px solid #9A1010;
+    border-collapse: collapse;
+    background-color: #FAEEEE;
+}
+
+.list tr {
+    border: 1px solid #9A1010;
+}
+
+.list td {
+    border: 1px solid #9A1010;
+    padding: .3em .3em;
+}
+
+.list a {
+    color: #9A1010;
+    text-decoration: none;
+}
+
+.list a:hover {
+    text-decoration: underline;
+}
+
+.table-head {
+    text-align: center;
+    color: #FAEEEE;
+    background-color:#9A1010;
+    border: 1px solid #FAEEEE;
+}
+
+.table-game-name {
+    width: 85%;
+}
+
+.table-rating {
+    width: 5%;
+    text-align: center;
+}
+
+.table-rating {
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    .user {
+        justify-content: center;
+    }
+
+    .list-wrapper {
+        grid-template-columns: 1fr;
+    }
+}

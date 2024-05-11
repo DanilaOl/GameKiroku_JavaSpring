@@ -1,0 +1,35 @@
+<div th:fragment="header">
+    <header sec:authorize="isAuthenticated()">
+        <div>
+            <a href="http://localhost:8080/" id="logo1">GK</a>
+        </div>
+        <div class="search-container">
+            <input type="search" name="search-content" placeholder="Поиск..." class="search" required>
+            <input type="submit" value="&#xf002" class="search fa-solid fa-magnifying-glass">
+        </div>
+        <div class="menu">
+            <div class="menu-dropbutton">
+                <span th:text="${#authentication.name}" />
+                <img src="/images/witcher-3-logo.png" alt="Avatar">
+            </div>
+            <div id="menuContent" class="menu-dropcontent">
+                <a href="http://localhost:8080/user">Профиль</a>
+                <a href="http://localhost:8080/logout">Выход</a>
+            </div>
+        </div>
+    </header>
+    <header sec:authorize="!isAuthenticated()">
+        <div>
+            <a href="http://localhost:8080/catalog" id="logo2">GK</a>
+        </div>
+        <div class="search-container">
+            <input type="search" name="search-content" placeholder="Поиск..." class="search" required>
+            <input type="submit" value="&#xf002" class="search fa-solid fa-magnifying-glass">
+        </div>
+        <div class="menu">
+            <div class="menu-dropbutton">
+                <a href="http://localhost:8080/login">Войти</a>
+            </div>
+        </div>
+    </header>
+</div>
